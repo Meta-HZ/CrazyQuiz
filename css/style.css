@@ -1,0 +1,95 @@
+.CQ-title-screen-background {
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%;
+    will-change: transform;
+    animation: background-image-animation 165s linear infinite;
+    transform: translateX(0) scale(1.1);
+    background: url('https://i.servimg.com/u/f48/18/06/99/75/fr-min10.jpg') repeat-x center center;
+    background-size: cover;
+    opacity: 0.8;
+}
+  
+@keyframes background-image-animation {
+    0% {background-position: 0 0;}
+    100% {background-position: -4096px 0;}
+}
+
+.CQ-title-screen-content {
+    position: absolute;
+    top: 25%;
+    text-align: center;
+    margin: 0 auto;
+    left: 30%;
+    right: 30%;
+    width: 40%;
+}
+
+.CQ-title-screen-content button {
+    border: 2px solid #000;
+    webkit-box-shadow: inset -2px -4px #0006, inset 2px 2px #FFF7;
+    box-shadow: inset -2px -4px #0006, inset 2px 2px #FFF7;
+    background: #999 url('https://i48.servimg.com/u/f48/18/06/99/75/bgbtn10.png');
+    background-position-x: 0%;
+    background-position-y: 0%;
+    background-size: auto;
+    background-size: cover;
+    background-position: center;
+    color: #DDD;
+    font-weight: 100;
+    text-align: center;
+    font-size: 12px;
+    cursor: context-menu;
+    image-rendering: pixelated;
+    width: 100%;
+    margin-bottom: 10px;
+    padding:0;
+}
+
+.CQ-title-screen-content button div {
+    padding: 10px;
+}
+
+.CQ-title-screen-content button:hover div {
+    background-color: rgba(100, 100, 255, .45);
+    height: 100%;
+    z-index: 5;
+    color: #ffff7c;
+    transition: all 0.2s;
+}
+
+.CQ-title-screen-content a {
+    border: 2px solid #000;
+    webkit-box-shadow: inset -2px -4px #0006, inset 2px 2px #FFF7;
+    box-shadow: inset -2px -4px #0006, inset 2px 2px #FFF7;
+    background: #999 url('https://i48.servimg.com/u/f48/18/06/99/75/bgbtn10.png');
+    background-position-x: 0%;
+    background-position-y: 0%;
+    background-size: auto;
+    background-size: cover;
+    background-position: center;
+    color: #DDD;
+    font-weight: 100;
+    text-align: center;
+    font-size: 12px;
+    cursor: context-menu;
+    image-rendering: pixelated;
+    width: calc(100% - 4px);
+    margin-bottom: 10px;
+    padding:0;
+    display: block;
+}
+
+.CQ-title-screen-content a div {
+    padding: 10px;
+}
+
+.CQ-title-screen-content a:hover div {
+    background-color: rgba(100, 100, 255, .45);
+    height: 100%;
+    z-index: 5;
+    color: #ffff7c;
+    transition: all 0.2s;
+}
