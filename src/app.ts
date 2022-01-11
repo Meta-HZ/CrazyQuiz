@@ -1,30 +1,24 @@
 console.log('Javascript is working!');
-import player from './player.js';
-
 
 let submitBtn = document.getElementById("CQ-startGame");
 // add event click listener on form submit button
 submitBtn.addEventListener("click", function(event) {
     // preventDefault to stop page from reloading
     event.preventDefault();
-    document.location.href = '/subjects.html';
-    createPlayer();
+
+    let enteredPlayerName = (<HTMLInputElement>document.getElementById('playerName')).value
+
+    if(enteredPlayerName) {
+        setPlayerName(enteredPlayerName);
+        document.location.href = '/subjects.html';
+    } else {
+        alert("Please enter your desired player name")
+    }
+    
 });
 
-//Create an player and set its name and appearance.
-function createPlayer () {
-    let newPlayer = new player();
-    // to create a new instance of a class
+function setPlayerName(name: string) {
+    localStorage.setItem('playerName', name)
 
-    newPlayer.setName((<HTMLInputElement>document.getElementById('playerName')).value);
-    newPlayer.setAppearanceSource("/assets/images/steve.png");
-
-    newPlayer.displayPlayer();
+    console.log(localStorage.getItem('playerName'))
 }
-
-
-// function loadNewImage(source: string): HTMLImageElement {
-//     const img = new Image();
-//     img.src = source;
-//     return img;
-// }

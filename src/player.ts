@@ -1,20 +1,22 @@
 export default class Player {
-    private name: string;
+    public name: string;
 
-    private health: number;
+    public health: number;
     
     private score: number;
 
     private appearanceSource: string;
 
     public constructor() {
-        this.displayPlayer();
+        this.name = localStorage.getItem("playerName");
+        this.health = 5;
     }
+
     public setName(name: string): void {
         this.name = name;
     }
 
-    private getName(): string {
+    public getName(): string {
         return this.name;
     }
 
@@ -40,20 +42,5 @@ export default class Player {
 
     private getScore(): number {
         return this.score;
-    }
-
-    public displayPlayer() {
-        console.log(this.name)
-        console.log(this.appearanceSource)
-        const newDiv = document.createElement("div");
-        newDiv.innerText = this.name;
-
-        const newImg = document.createElement("img");
-        newImg.src = this.appearanceSource;
-
-        const parentDiv = document.getElementById("gameMap");
-        console.log(parentDiv);
-        parentDiv.append(newDiv);
-        parentDiv.append(newImg);
     }
 }
