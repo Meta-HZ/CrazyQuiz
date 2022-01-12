@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
+    <link rel="stylesheet" href="/css/style.css">
     <style>
         html {
             overflow: hidden;
@@ -12,10 +12,28 @@
     </style>
 
     <title>CrazyQuiz - start</title>
-    <h2>Slets go!</h2>
+    
 </head>
 <body>
-    <canvas id="canvas"></canvas>
+    <div class="CQ-title-screen-background"></div>
+    <div class="CQ-title-screen-content">
+        <div>
+            <img src="/assets/images/mindQuiz.png">
+        </div>
+        
+        <form action="">
+            <input id="playerName" type="text" placeholder="Username" style="width: calc(100% - 22px); padding: 8px; margin-bottom: 10px;" required="">
+            <button id="CQ-startGame" type="submit">
+                <div>Singleplayer</div>
+            </button>
+            <a>
+                <div>Leaderboard</div>
+            </a>
+            <a>
+                <div>Quit</div>
+            </a>
+        </form>
+    </div>
     <script type="module" src="./build/app.js"></script>
 </body>
 </html>
