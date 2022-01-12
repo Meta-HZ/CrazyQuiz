@@ -18,6 +18,9 @@
 # KDE directory preferences
 .directory
 
+**/*.map 
+**/app/**/*.js
+
 # Linux trash folder which might appear on any partition or disk
 .Trash-*
 
