@@ -146,7 +146,7 @@ export default class Player {
     }
 
     /**
-     * Draw the GameItem on the canvas
+     * Draw the Scoreboard on the canvas
      *
      * @param ctx rendering context
      */

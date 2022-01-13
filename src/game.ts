@@ -1,8 +1,11 @@
 import Player from './Player.js';
+import Scoreboard from './scoreboard.js';
 
 export default class Game {
 
   private player: Player;
+
+  private scoreboard: Scoreboard;
 
   private canvas: HTMLCanvasElement;
   
@@ -21,6 +24,7 @@ export default class Game {
     this.ctx = <CanvasRenderingContext2D> this.canvas.getContext('2d');
     
     this.player = new Player(this.canvas.width, this.canvas.height);
+    this.scoreboard = new Scoreboard();
     this.loop();
   }
 
@@ -30,6 +34,15 @@ export default class Game {
   private draw(): void {
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
     this.player.draw(this.ctx);
+    //fill score with some numbers
+    this.scoreboard.setScore(10)
+    //add names and scores
+    this.scoreboard.setScores("John", 30);
+    this.scoreboard.setScores("Jane", 20);
+    this.scoreboard.setScores("Jack", 10);
+    this.scoreboard.setScores("Jill", 5);
+    this.scoreboard.setScores("Jana", 1);
+    this.scoreboard.draw(this.ctx);
   }
 
   /**
