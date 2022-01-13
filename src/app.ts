@@ -6,19 +6,15 @@ submitBtn.addEventListener("click", function(event) {
     // preventDefault to stop page from reloading
     event.preventDefault();
 
+    // get value out of input
     let enteredPlayerName = (<HTMLInputElement>document.getElementById('playerName')).value
 
+    // check if entered text is not empty
     if(enteredPlayerName) {
-        setPlayerName(enteredPlayerName);
-        document.location.href = '/subjects.html';
+        localStorage.setItem('playerName', enteredPlayerName)
+        document.location.href = '/game.html';
     } else {
         alert("Please enter your desired player name")
     }
     
 });
-
-function setPlayerName(name: string) {
-    localStorage.setItem('playerName', name)
-
-    console.log(localStorage.getItem('playerName'))
-}
