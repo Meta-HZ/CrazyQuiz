@@ -1,3 +1,5 @@
+import { Score, getScores, setScore } from "./api/scoreController.js";
+
 export default class Scoreboard {
 
     private score: number;
@@ -14,13 +16,25 @@ export default class Scoreboard {
         return this.score;
     }
 
-    public setScore(score: number): void {
+    public setScore(name: string, score: number): void {
         this.score = score;
+        setScore(name, score);
     }
 
-    // return the top 5 scores and names in ascending order
-    public getScores(): { name: string, score: number }[] {
-        return this.scores.slice(0, 5);
+    // Get scores from the database
+    public getScores(): Promise<Score[]> {
+        getScores().then((res: Score[]) => {
+            // sort the scores in descending order
+            res.sort((a, b) => b.score - a.score);
+            this.scores = res;
+            console.log(res);
+        });
+
+        
+        return new Promise((resolve, reject) => {
+            resolve(this.scores);
+        }
+        );
     }
 
 
@@ -47,13 +61,14 @@ export default class Scoreboard {
         ctx.fillText("Top 5 Scores:", 10, 70);
         ctx.fillStyle = "black";
         ctx.font = "20px Arial";
-        // draw the top 5 scores and names in according order from getScores()
-        for (let i = 0; i < this.getScores().length; i++) {
+        // draw the top 5 scores and names in descending order
+        for (let i = 0; i < this.scores.length; i++) {
             // draw an crown emoji for the first place behind the name
             if (i === 0) {
                 ctx.fillText(`🏆 `, 10, 110 + (i * 30));
             }
-            ctx.fillText(`${this.getScores()[i].name}: ${this.getScores()[i].score}`, 40, 110 + (i * 30));
+            ctx.fillText(`${this.scores[i].name}: ${this.scores[i].score}`, 40, 110 + (i * 30));
+            
         }
     }
 }
