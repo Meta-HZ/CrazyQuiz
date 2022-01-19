@@ -58,7 +58,7 @@ export default class Scoreboard {
         ctx.fillText(`My Score: ${this.score}`, 10, 30);
         ctx.font = "30px Arial";
         ctx.fillStyle = "red";
-        ctx.fillText("Top 5 Scores:", 10, 70);
+        ctx.fillText("Top 3 Scores:", 10, 70);
         ctx.fillStyle = "black";
         ctx.font = "20px Arial";
         // draw the top 5 scores and names in descending order
@@ -67,8 +67,9 @@ export default class Scoreboard {
             if (i === 0) {
                 ctx.fillText(`🏆 `, 10, 110 + (i * 30));
             }
+            if (i < 3) {
             ctx.fillText(`${this.scores[i].name}: ${this.scores[i].score}`, 40, 110 + (i * 30));
-            
+            }
         }
     }
 }
