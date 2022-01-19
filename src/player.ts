@@ -22,7 +22,7 @@ export default class Player {
         this.name = localStorage.getItem("playerName");
         this.health = 5;
         this.speed = 4;
-        this.image = Game.loadNewImage('/assets/images/steve-front.png');
+        this.image = Game.loadNewImage('/assets/images/steve-front-side.png');
         this.setXPosition(canvasWidth / 2);
         this.setYPosition(canvasHeight / 2);
 
@@ -131,26 +131,34 @@ export default class Player {
     public move(): void {
         if (this.keyBoardListener.isKeyDown(KeyboardListener.KEY_LEFT)) {
             this.xPosition = this.xPosition - this.speed;
+            this.image = Game.loadNewImage('/assets/images/steve-left-side.png');
         }
         if (this.keyBoardListener.isKeyDown(KeyboardListener.KEY_RIGHT)) {
-            this.xPosition = this.xPosition + this.speed
+            this.xPosition = this.xPosition + this.speed;
+            this.image = Game.loadNewImage('/assets/images/steve-right-side.png');
         }
         if (this.keyBoardListener.isKeyDown(KeyboardListener.KEY_UP)) {
             this.yPosition = this.yPosition - this.speed;
-            this.image = Game.loadNewImage('/assets/images/steve-back.png');
+            this.image = Game.loadNewImage('/assets/images/steve-back-side.png');
         }
         if (this.keyBoardListener.isKeyDown(KeyboardListener.KEY_DOWN)) {
             this.yPosition = this.yPosition + this.speed;
-            this.image = Game.loadNewImage('/assets/images/steve-front.png');
+            this.image = Game.loadNewImage('/assets/images/steve-front-side.png');
         }
     }
 
     /**
-     * Draw the Scoreboard on the canvas
+     * Draw the Player on the canvas
      *
      * @param ctx rendering context
      */
     public draw(ctx: CanvasRenderingContext2D): void {
+        // write the player to the canvas
         ctx.drawImage(this.image, this.xPosition, this.yPosition);
+        let font = '16px ' + localStorage.getItem("playerNameFontFamily");
+        // write the player name above player image to the canvas
+        ctx.font = font 
+        ctx.fillStyle = localStorage.getItem("playerNameColor")
+        ctx.fillText(this.name, this.xPosition - 0, this.yPosition - 10);
     }
-}
+} 
