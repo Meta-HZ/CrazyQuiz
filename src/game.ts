@@ -38,7 +38,7 @@ export default class Game {
   private draw(): void {
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
     this.player.draw(this.ctx);
-    this.scoreboard.draw(this.ctx);
+    this.scoreboard.draw();
 
 
   }
