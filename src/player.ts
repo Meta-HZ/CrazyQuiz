@@ -155,9 +155,10 @@ export default class Player {
     public draw(ctx: CanvasRenderingContext2D): void {
         // write the player to the canvas
         ctx.drawImage(this.image, this.xPosition, this.yPosition);
+        let font = '16px ' + localStorage.getItem("playerNameFontFamily");
         // write the player name above player image to the canvas
-        ctx.font = `16px sans-serif`;
-        ctx.fillStyle = "white";
+        ctx.font = font 
+        ctx.fillStyle = localStorage.getItem("playerNameColor")
         ctx.fillText(this.name, this.xPosition - 0, this.yPosition - 10);
     }
-}
+} 
