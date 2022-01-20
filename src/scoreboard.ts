@@ -44,37 +44,23 @@ export default class Scoreboard {
     this.scores.push({ name, score });
   }
 
-  /**
-   * Draw the Scoreboard on the canvas
-   *
-   * @param ctx rendering context
-   */
-  public draw(ctx: CanvasRenderingContext2D): void {
-    // draw borders
-    ctx.fillStyle = "gray";
-    ctx.fillRect(0, 0, 200, 250);
-    // draw my score
-    ctx.font = "30px Arial";
-    ctx.fillStyle = "green";
-    ctx.fillText(`My Score: ${this.score}`, 10, 30);
-    ctx.font = "30px Arial";
-    ctx.fillStyle = "red";
-    ctx.fillText("Top 3 Scores:", 10, 70);
-    ctx.fillStyle = "black";
-    ctx.font = "20px Arial";
-    // draw the top 5 scores and names in descending order
-    for (let i = 0; i < this.scores.length; i++) {
-      // draw an crown emoji for the first place behind the name
-      if (i === 0) {
-        ctx.fillText(`🏆 `, 10, 110 + i * 30);
-      }
-      if (i < 3) {
-        ctx.fillText(
-          `${this.scores[i].name}: ${this.scores[i].score}`,
-          40,
-          110 + i * 30
-        );
-      }
+    /**
+     * Draw the Scoreboard on the banner
+     *
+     */
+    public draw(): void {
+        let topPlayers = document.getElementById("TopPlayers")
+        topPlayers.innerHTML = `Mijn score is: ${this.score}  `
+       
+        // draw the top 5 scores and names in descending order
+        for (let i = 0; i < this.scores.length; i++) {
+            // draw an crown emoji for the first place behind the name
+            if (i === 0) {
+                topPlayers.innerHTML = topPlayers.innerHTML + `en de top 3 is: 🏆 `
+            }
+            if (i < 3) {
+                topPlayers.innerHTML = topPlayers.innerHTML + `${this.scores[i].name}: ${this.scores[i].score}. `
+            }
+        }
     }
-  }
 }
