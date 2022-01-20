@@ -40,27 +40,19 @@ export default class Game {
 
     this.questions = [];
 
-    // const res = await fetch("questions.json").then((response) => response.json());
     this.getQuestions().then((response: QuestionData[]) => {
       this.questionsJson = response;
-      console.log(this.questionsJson[1]);
+
+      for (let i = 0; i < 3; i++) {
+        this.questions.push(
+          new Question(
+            this.canvas.width,
+            this.questionsJson[1].question,
+            this.answersJson
+          )
+        );
+      }
     });
-
-    // getScores().then((res: Score[]) => {
-    //   // sort the scores in descending order
-    //   res.sort((a, b) => b.score - a.score);
-    //   this.scores = res;
-    // });
-
-    for (let i = 0; i < 3; i++) {
-      this.questions.push(
-        new Question(
-          this.canvas.width,
-          this.questionsJson[1].question,
-          this.answersJson
-        )
-      );
-    }
 
     this.scoreboard = new Scoreboard();
 
@@ -74,7 +66,7 @@ export default class Game {
     const res_1 = await res.json();
     return res_1 as QuestionData[]
   }
-
+ 
   /**
    * Draws all the necessary elements to the canvas
    */
