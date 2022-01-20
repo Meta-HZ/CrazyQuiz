@@ -33,21 +33,22 @@ export default class Game {
 
     this.questions = [];
 
+    const res = fetch("questions.json").then(response => response.json())
+
     for (let i = 0; i < 3; i++) {
-
-
-
       this.questions.push(
-        new Question(this.canvas.width, "test", this.answersJson),
+        new Question(this.canvas.width, "this.questionsJson.question", this.answersJson),
       );
     }
+    
 
     this.scoreboard = new Scoreboard();
 
-    // // Get scores from the database
+    // Get scores from the database
     this.scoreboard.getScores();
     this.loop();
   }
+
 
   /**
    * Draws all the necessary elements to the canvas
@@ -58,7 +59,7 @@ export default class Game {
     this.scoreboard.draw();
 
     if (this.questions.length !== 0) {
-      // draw each scoring item
+      // draw each question item
       this.questions.forEach((question) => {
         question.draw(this.ctx);
       });

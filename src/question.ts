@@ -1,4 +1,4 @@
-export default class Player {
+export default class Question {
   public question: string;
 
   private answers: string[];
@@ -27,7 +27,7 @@ export default class Player {
   public draw(ctx: CanvasRenderingContext2D): void {
     // Draw a question
     ctx.fillStyle = "#b5651e";
-    ctx.fillText(this.question,this.randomX, this.randomY)
+    ctx.fillText(this.question, this.randomX, this.randomY)
     ctx.fillRect(this.randomX, this.randomY, 30,30)
   }
 }
