@@ -1,9 +1,16 @@
-import Player from './Player.js';
-import Question from './question.js';
-import Scoreboard from './scoreboard.js';
+export interface QuestionData {
+  question: string
+  answered: boolean
+  answers: string[]
+  answerId: number
+
+}
+
+import Player from "./Player.js";
+import Question from "./question.js";
+import Scoreboard from "./scoreboard.js";
 
 export default class Game {
-
   private player: Player;
 
   private scoreboard: Scoreboard;
@@ -14,7 +21,7 @@ export default class Game {
 
   private ctx: CanvasRenderingContext2D;
 
-  private questionsJson: string[];
+  private questionsJson: { question: string; answered: boolean; answers: string[]; answerId: number }[] = [];
   private answersJson: string[];
 
   /**
@@ -27,20 +34,33 @@ export default class Game {
     this.canvas.width = window.innerWidth;
     this.canvas.height = window.innerHeight;
 
-    this.ctx = <CanvasRenderingContext2D>this.canvas.getContext('2d');
+    this.ctx = <CanvasRenderingContext2D>this.canvas.getContext("2d");
 
     this.player = new Player(this.canvas.width, this.canvas.height);
 
     this.questions = [];
 
-    const res = fetch("questions.json").then(response => response.json())
+    // const res = await fetch("questions.json").then((response) => response.json());
+    this.getQuestions().then((response: QuestionData[]) => {
+      this.questionsJson = response;
+      console.log(this.questionsJson[1]);
+    });
+
+    // getScores().then((res: Score[]) => {
+    //   // sort the scores in descending order
+    //   res.sort((a, b) => b.score - a.score);
+    //   this.scores = res;
+    // });
 
     for (let i = 0; i < 3; i++) {
       this.questions.push(
-        new Question(this.canvas.width, "this.questionsJson.question", this.answersJson),
+        new Question(
+          this.canvas.width,
+          this.questionsJson[1].question,
+          this.answersJson
+        )
       );
     }
-    
 
     this.scoreboard = new Scoreboard();
 
@@ -49,6 +69,11 @@ export default class Game {
     this.loop();
   }
 
+  private async getQuestions(): Promise<QuestionData[]> {
+    const res = await fetch("questions.json")
+    const res_1 = await res.json();
+    return res_1 as QuestionData[]
+  }
 
   /**
    * Draws all the necessary elements to the canvas
