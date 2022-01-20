@@ -1,4 +1,4 @@
-# CrazyQuiz
+# MindQuiz
 
 For our game we had to go to a school and ask the kids what features they wanted. Based on their feedback and ideas we came up with those requirements.
 
