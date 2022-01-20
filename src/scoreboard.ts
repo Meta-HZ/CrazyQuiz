@@ -31,7 +31,6 @@ export default class Scoreboard {
       // sort the scores in descending order
       res.sort((a, b) => b.score - a.score);
       this.scores = res;
-      console.log(res);
     });
 
     return new Promise((resolve, reject) => {
@@ -50,7 +49,7 @@ export default class Scoreboard {
      */
     public draw(): void {
         let topPlayers = document.getElementById("TopPlayers")
-        topPlayers.innerHTML = `Mijn score is: ${this.score}  `
+        topPlayers.innerHTML = `Huidige score is: ${this.score}  `
        
         // draw the top 5 scores and names in descending order
         for (let i = 0; i < this.scores.length; i++) {

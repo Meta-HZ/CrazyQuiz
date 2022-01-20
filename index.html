@@ -13,7 +13,7 @@
             }
         </style>
 
-        <title>CrazyQuiz - start</title>
+        <title>CrazyQuiz - Start</title>
         
     </head>
     <body>
@@ -23,7 +23,7 @@
                 <img class="mx-auto" src="/assets/images/mindQuiz.png">
             </div>
             <form action="">
-                <input id="playerName" type="text" placeholder="Username" style="width: 100%; padding: 8px; margin-bottom: 10px;" required="">
+                <input id="playerName" type="text" placeholder="Gebruikersnaam" style="width: 100%; padding: 8px; margin-bottom: 10px;">
                 <button id="CQ-startGame" type="submit">
                     <div>Singleplayer</div>
                 </button>
@@ -39,5 +39,10 @@
             </form>
         </div>
         <script type="module" src="./build/app.js"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function(event) {
+                document.getElementById("playerName").value = localStorage.getItem("playerName")
+            });
+        </script>
     </body>
 </html>

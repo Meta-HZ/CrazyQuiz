@@ -1,6 +1,3 @@
-import Game from "./game.js";
-import KeyboardListener from "./KeyboardListener.js";
-
 export default class Player {
   public name: string;
 
@@ -11,7 +8,7 @@ export default class Player {
 
   private randomY: number;
 
-  public constructor(canvasWidth: number, canvasHeight: number) {
+  public constructor(canvasWidth: number) {
     //generate random question on canvas working space
     this.randomX = Math.floor(Math.random() * (canvasWidth - 500)) + 200;
     this.randomY = Math.floor(Math.random() * 750) + 100;

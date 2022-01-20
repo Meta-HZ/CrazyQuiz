@@ -8,7 +8,7 @@ export default class Game {
 
   private scoreboard: Scoreboard;
 
-  private question: Question;
+  private questions: Question[];
 
   private canvas: HTMLCanvasElement;
 
@@ -27,12 +27,18 @@ export default class Game {
     this.ctx = <CanvasRenderingContext2D>this.canvas.getContext('2d');
 
     this.player = new Player(this.canvas.width, this.canvas.height);
-    this.question = new Question(this.canvas.width, this.canvas.height);
+
+    this.questions = [];
+
+    for (let i = 0; i < 3; i++) {
+      this.questions.push(
+        new Question(this.canvas.width),
+      );
+    }
+
     this.scoreboard = new Scoreboard();
 
-    // Add score to the database
-    this.scoreboard.setScore("Daan", 11)
-    // Get scores from the database
+    // // Get scores from the database
     this.scoreboard.getScores();
     this.loop();
   }
@@ -45,7 +51,12 @@ export default class Game {
     this.player.draw(this.ctx);
     this.scoreboard.draw();
 
-
+    if (this.questions.length !== 0) {
+      // draw each scoring item
+      this.questions.forEach((question) => {
+        question.draw(this.ctx);
+      });
+    }
   }
 
   /**
@@ -61,7 +72,6 @@ export default class Game {
   private loop = (): void => {
     this.move();
     this.draw();
-    this.question.draw(this.ctx);
     requestAnimationFrame(this.loop);
   };
 
