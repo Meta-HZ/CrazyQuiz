@@ -26,8 +26,9 @@ export default class Game {
     this.player = new Player(this.canvas.width, this.canvas.height);
     this.scoreboard = new Scoreboard();
 
-    //fill score with some numbers
-    this.scoreboard.setScore("ggg", 15)
+    // Add score to the database
+    this.scoreboard.setScore("Daan", 11)
+    // Get scores from the database
     this.scoreboard.getScores();
     this.loop();
   }
