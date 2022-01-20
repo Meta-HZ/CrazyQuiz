@@ -14,6 +14,9 @@ export default class Game {
 
   private ctx: CanvasRenderingContext2D;
 
+  private questionsJson: string[];
+  private answersJson: string[];
+
   /**
    * Initialize the Game class
    *
@@ -31,8 +34,11 @@ export default class Game {
     this.questions = [];
 
     for (let i = 0; i < 3; i++) {
+
+
+
       this.questions.push(
-        new Question(this.canvas.width),
+        new Question(this.canvas.width, "test", this.answersJson),
       );
     }
 

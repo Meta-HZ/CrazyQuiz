@@ -1,0 +1,59 @@
+
+
+[
+    {
+        "question": "Wat is internet veiligheid?",
+        "answered": true,
+        "answers": [
+            "Beschermen van digitale informatie",
+            "Politie spelen op het internet" ,
+            "Eten van internet koekjes" 
+        ],
+        "answerId": 0
+    },
+    {
+        "question": "Wat gebeurt er wanneer je een foto online zet?",
+        "answers": [
+            "De foto is altijd terug te vinden" ,
+            "De foto kan makkelijk verwijderd worden",
+            "Je foto komt in een reclame terecht" 
+        ],
+        "answerId": 1
+    },
+    {
+        "question": "Wat is internet veiligheid?",
+        "answers": [
+            "Wanneer het kleine letters, hoofdletters, cijfers en speciale tekens gebruikt" ,
+            " Wanneer het een kort wachtwoord is" ,
+            "Wanneer de naam van je hond er in zit" 
+        ],
+        "answerId": 2
+    },
+    {
+        "question": "Wat is mediawijsheid?",
+        "answers": [
+          "Het goed om kunnen gaan met het internet",
+          "Weten wat het internet doet",
+          "Heel goed minecraft kunnen spelen"
+        ],
+        "answerId": 3
+    },
+    {
+        "question": "Waarom is mediawijsheid belangrijk?",
+        "answers": [
+          "Zodat je weet hoe je met het internet om moet gaan" ,
+          "Omdat media een goede invloed is" ,
+          "Zodat je het je oma kan leren" 
+        ],
+        "answerId": 4
+    },
+    {
+        "question": "What is Data Safety?",
+        "answers": [
+          "Protection of digital assets" ,
+          "Pirated Software Usage" ,
+          "Eating Internet Cookies" 
+        ],
+        "answerId": 5
+    }
+  ]
