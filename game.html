@@ -16,8 +16,7 @@
     <title>CrazyQuiz - subjects</title>
 </head>
 <body>
-    <canvas id="canvas"></canvas>
-    <!-- This example requires Tailwind CSS v2.0+ -->
+    <canvas class="h-full w-full" id="canvas"></canvas>
     <div id="banner" class="bg-indigo-600" style="position: absolute; top: 0; right: 0; left: 0;">
         <div class="max-w-7xl mx-auto py-3 px-3 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between flex-wrap">
@@ -56,7 +55,7 @@
     <script type="module" src="./build/gameStart.js"></script>
     <script>
         document.getElementById("closeBanner").addEventListener("click", function () {
-            document.getElementById("banner").style.display = "none";
+            window.location.href = "index.html"
         });
 
         document.getElementById("seeLeaderboard").addEventListener("click", function () {

@@ -1,4 +1,5 @@
 import Player from './Player.js';
+import Question from './question.js';
 import Scoreboard from './scoreboard.js';
 
 export default class Game {
@@ -6,6 +7,8 @@ export default class Game {
   private player: Player;
 
   private scoreboard: Scoreboard;
+
+  private question: Question;
 
   private canvas: HTMLCanvasElement;
 
@@ -24,6 +27,7 @@ export default class Game {
     this.ctx = <CanvasRenderingContext2D>this.canvas.getContext('2d');
 
     this.player = new Player(this.canvas.width, this.canvas.height);
+    this.question = new Question(this.canvas.width, this.canvas.height);
     this.scoreboard = new Scoreboard();
 
     // Add score to the database
@@ -57,6 +61,7 @@ export default class Game {
   private loop = (): void => {
     this.move();
     this.draw();
+    this.question.draw(this.ctx);
     requestAnimationFrame(this.loop);
   };
 
@@ -71,5 +76,4 @@ export default class Game {
     img.src = source;
     return img;
   }
-
 }

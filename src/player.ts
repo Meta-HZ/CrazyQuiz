@@ -18,11 +18,14 @@ export default class Player {
 
     private image: HTMLImageElement;
 
+    private healthImage: HTMLImageElement;
+
     public constructor(canvasWidth: number, canvasHeight: number) {
         this.name = localStorage.getItem("playerName");
-        this.health = 5;
+        this.health = 3;
         this.speed = 4;
         this.image = Game.loadNewImage('/assets/images/steve-front-side.png');
+        this.healthImage = Game.loadNewImage('/assets/images/heart.png');
         this.setXPosition(canvasWidth / 2);
         this.setYPosition(canvasHeight / 2);
 
@@ -61,14 +64,6 @@ export default class Player {
 
     private getHealth(): number {
         return this.health;
-    }
-
-    private setScore(score: number): void {
-        this.score = score;
-    }
-
-    private getScore(): number {
-        return this.score;
     }
 
     /**
@@ -153,6 +148,10 @@ export default class Player {
      * @param ctx rendering context
      */
     public draw(ctx: CanvasRenderingContext2D): void {
+        // Draw hearts on the top left corner of the canvas
+        for (let i = 0; i < this.getHealth(); i++) {
+            ctx.drawImage(this.healthImage, i * 30, 70, 30, 30);
+        }
         // write the player to the canvas
         ctx.drawImage(this.image, this.xPosition, this.yPosition);
         let font = '16px ' + localStorage.getItem("playerNameFontFamily");
