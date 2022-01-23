@@ -1,9 +1,8 @@
 export interface QuestionData {
   question: string
   answered: boolean
+  answer: string
   answers: string[]
-  answerId: number
-
 }
 
 import Player from "./Player.js";
@@ -21,8 +20,12 @@ export default class Game {
 
   private ctx: CanvasRenderingContext2D;
 
-  private questionsJson: { question: string; answered: boolean; answers: string[]; answerId: number }[] = [];
-  private answersJson: string[];
+  private questionsJson: { 
+    question: string; 
+    answered: boolean; 
+    answer: string;
+    answers: string[];
+  }[] = [];
 
   /**
    * Initialize the Game class
@@ -42,17 +45,23 @@ export default class Game {
 
     this.getQuestions().then((response: QuestionData[]) => {
       this.questionsJson = response;
-
       for (let i = 0; i < 3; i++) {
+        
+        let randomNumber = this.getNumber()
+
         this.questions.push(
           new Question(
             this.canvas.width,
-            this.questionsJson[1].question,
-            this.answersJson
+            this.questionsJson[randomNumber].question,
+            this.questionsJson[randomNumber].answered,
+            this.questionsJson[randomNumber].answer,
+            this.questionsJson[randomNumber].answers
           )
         );
       }
     });
+
+
 
     this.scoreboard = new Scoreboard();
 
@@ -61,12 +70,29 @@ export default class Game {
     this.loop();
   }
 
+
+  // getNumber generates a different random number in the inclusive range [0, 4]
+  private getNumber = (function() {
+    var previous = NaN;
+    return function() {
+      var min = 0;
+      var max = 5 + (!isNaN(previous) ? -1 : 0);
+      var value = Math.floor(Math.random() * (max - min + 1)) + min;
+      if (value >= previous) {
+        value += 1;
+      }
+      previous = value;
+      return value;
+    };
+  })();
+
+
   private async getQuestions(): Promise<QuestionData[]> {
     const res = await fetch("questions.json")
     const res_1 = await res.json();
     return res_1 as QuestionData[]
   }
- 
+
   /**
    * Draws all the necessary elements to the canvas
    */
@@ -78,7 +104,7 @@ export default class Game {
     if (this.questions.length !== 0) {
       // draw each question item
       this.questions.forEach((question) => {
-        question.draw(this.ctx);
+        question.drawQuestion(this.ctx);
       });
     }
   }
@@ -96,6 +122,12 @@ export default class Game {
   private loop = (): void => {
     this.move();
     this.draw();
+    let collides = this.player.collidesWithBlock(this.questions);
+
+    if (collides) {
+      this.questions = []
+    }
+    
     requestAnimationFrame(this.loop);
   };
 

@@ -1,5 +1,6 @@
 import Game from './game.js';
 import KeyboardListener from './KeyboardListener.js';
+import Question from './question.js';
 
 export default class Player {
     public name: string;
@@ -20,14 +21,16 @@ export default class Player {
 
     private healthImage: HTMLImageElement;
 
+    private canvas: CanvasRenderingContext2D;
+
     public constructor(canvasWidth: number, canvasHeight: number) {
         this.name = localStorage.getItem("playerName");
         this.health = 3;
         this.speed = 4;
         this.image = Game.loadNewImage('/assets/images/steve-front-side.png');
         this.healthImage = Game.loadNewImage('/assets/images/heart.png');
-        this.setXPosition(canvasWidth / 2);
-        this.setYPosition(canvasHeight / 2);
+        this.setXPosition(canvasWidth / 4);
+        this.setYPosition(canvasHeight / 4);
 
         this.keyBoardListener = new KeyboardListener();
     }
@@ -142,12 +145,36 @@ export default class Player {
         }
     }
 
+
+    /**
+     * Method to determine of the HZ bird is colliding with a block
+     *
+     * @param blocks blocks in the game
+     * @returns true or false
+     */
+    public collidesWithBlock(questions: Question[]): boolean {
+        let collides = false;
+        questions.forEach((question) => {
+            if (this.xPosition < question.getXPosition() + question.getImage().width
+                    && this.xPosition + this.getImage().width > question.getXPosition()
+                    && this.yPosition < question.getYPosition() + question.getImage().height
+                    && this.yPosition + this.getImage().height > question.getYPosition()) {
+                console.log('Collision with block!');
+                question.drawAnswers(this.canvas, question.getAnswers())
+                collides = true;
+            }
+        });
+        return collides
+    }
+
     /**
      * Draw the Player on the canvas
      *
      * @param ctx rendering context
      */
     public draw(ctx: CanvasRenderingContext2D): void {
+        this.canvas = ctx;
+
         // Draw hearts on the top left corner of the canvas
         for (let i = 0; i < this.getHealth(); i++) {
             ctx.drawImage(this.healthImage, i * 30, 70, 30, 30);

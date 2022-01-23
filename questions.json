@@ -1,59 +1,63 @@
-
-
 [
     {
         "question": "Wat is internet veiligheid?",
-        "answered": true,
+        "answered": false,
+        "answer": "Beschermen van digitale informatie",
         "answers": [
             "Beschermen van digitale informatie",
             "Politie spelen op het internet" ,
             "Eten van internet koekjes" 
-        ],
-        "answerId": 0
+        ]
     },
     {
+        
         "question": "Wat gebeurt er wanneer je een foto online zet?",
+        "answered": false,
+        "answer": "De foto is altijd terug te vinden",
         "answers": [
             "De foto is altijd terug te vinden" ,
             "De foto kan makkelijk verwijderd worden",
             "Je foto komt in een reclame terecht" 
-        ],
-        "answerId": 1
+        ]
     },
     {
-        "question": "Wat is internet veiligheid?",
+        "question": "Wat is een goed wachtwoord?",
+        "answered": false,
+        "answer": "Wanneer het kleine letters, hoofdletters, cijfers en speciale tekens gebruikt",
         "answers": [
             "Wanneer het kleine letters, hoofdletters, cijfers en speciale tekens gebruikt" ,
-            " Wanneer het een kort wachtwoord is" ,
+            "Wanneer het een kort wachtwoord is" ,
             "Wanneer de naam van je hond er in zit" 
-        ],
-        "answerId": 2
+        ]
     },
     {
         "question": "Wat is mediawijsheid?",
+        "answered": false,
+        "answer": "Het goed om kunnen gaan met het internet",
         "answers": [
-          "Het goed om kunnen gaan met het internet",
-          "Weten wat het internet doet",
-          "Heel goed minecraft kunnen spelen"
-        ],
-        "answerId": 3
+            "Het goed om kunnen gaan met het internet",
+            "Weten wat het internet doet",
+            "Heel goed minecraft kunnen spelen"
+        ]
     },
     {
         "question": "Waarom is mediawijsheid belangrijk?",
+        "answered": false,
+        "answer": "Zodat je weet hoe je met het internet om moet gaan",
         "answers": [
-          "Zodat je weet hoe je met het internet om moet gaan" ,
-          "Omdat media een goede invloed is" ,
-          "Zodat je het je oma kan leren" 
-        ],
-        "answerId": 4
+            "Zodat je weet hoe je met het internet om moet gaan" ,
+            "Omdat media een goede invloed is" ,
+            "Zodat je het je oma kan leren" 
+        ]
     },
     {
         "question": "What is Data Safety?",
+        "answered": false,
+        "answer": "Protection of digital assets",
         "answers": [
-          "Protection of digital assets" ,
-          "Pirated Software Usage" ,
-          "Eating Internet Cookies" 
-        ],
-        "answerId": 5
+            "Protection of digital assets" ,
+            "Pirated Software Usage" ,
+            "Eating Internet Cookies" 
+        ]
     }
-  ]
+]
