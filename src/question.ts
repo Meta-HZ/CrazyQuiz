@@ -21,8 +21,8 @@ export default class Question {
   public constructor(canvasWidth: number, question: string, isAnswered: boolean, answer: string, answers: string[]) {
     this.canvasWidth = canvasWidth;
     //generate random question on canvas working space
-    this.randomX = Math.floor(Math.random() * (this.canvasWidth - 500)) + 200;
-    this.randomY = Math.floor(Math.random() * 750) + 100;
+    this.randomX = Math.random() * (canvasWidth - 100) + 250;
+    this.randomY = Math.random() * (this.canvasWidth - 500) + 300;
 
     this.question = question;
     this.answer = answer;
