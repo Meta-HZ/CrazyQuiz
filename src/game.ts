@@ -5,7 +5,7 @@ export interface QuestionData {
   answers: string[];
 }
 
-import Player from "./Player.js";
+import Player from "./player.js";
 import Question from "./question.js";
 import Answer from "./answer.js";
 import Scoreboard from "./scoreboard.js";
