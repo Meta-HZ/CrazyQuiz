@@ -11,12 +11,9 @@
         html {
             overflow: hidden;
         }
-        body {
-          background-image: url('assets/images/dirt.png');
-        }
     </style>
 
-    <title>CrazyQuiz - Instellingen</title>
+    <title>CrazyQuiz - scoreboard</title>
 </head>
 <body>
     <!-- This example requires Tailwind CSS v2.0+ -->
@@ -26,7 +23,7 @@
         <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
           <!-- Mobile menu button-->
           <button type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
-            <span class="sr-only">Open start scherm</span>
+            <span class="sr-only">Open main menu</span>
             <!--
               Icon when menu is closed.
   
@@ -59,8 +56,9 @@
             <div class="flex space-x-4">
               <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
               <a href="index.html" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Game</a>
-              <a href="#" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium cursor-default" aria-current="page">Instellingen</a>
-              <a href="scoreboard.html" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" aria-current="page">Scoreboard</a>
+
+              <a href="settings.html" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Instellingen</a>
+              <a href="#" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium cursor-default" aria-current="page">Scoreboard</a>
             </div>
           </div>
         </div>
@@ -72,55 +70,27 @@
       <div class="px-2 pt-2 pb-3 space-y-1">
         <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
         <a href="index.html" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Game</a>
-        <a href="#" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium" aria-current="page">Instellingen</a>
-        <a href="scoreboard.html" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Scoreboard</a>
+        <a href="settings.html" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Instellingen</a>
+        <a href="#" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium cursor-default" aria-current="page">Scoreboard</a>
+
       </div>
     </div>
   </nav>
 
 <div class="mx-auto w-80 py-10 px-6 bg-gray-800 text-center rounded-lg mt-10 xl:px-10 xl:text-center shadow">
     <div class="space-y-6 xl:space-y-10">
-        <img class="mx-auto" src="/assets/images/steve-front-side.png" alt="player image">
+        <h1 class="text-white text-3xl font-bold">Scoreboard</h1>
         <div class="space-y-2 xl:flex xl:items-center xl:justify-between">
-        <div class="font-medium text-lg leading-6 space-y-1">
-            <h1 id="playerName" class="text-3xl"></h1>
-            <span class="text-white">Kies hieronder de kleur van je naam.</span>
-            <input type="color" id="colorPicker" style="width:100%;">
-            <span class="text-white block">Kies hieronder de style van je naam.</span>
-            <select id="fontDropdown" onchange="changeFont()">
-            <option value="Rubik Beastly, cursive" style="font-family: Rubik Beastly, cursive">Rubik Beastly</option>
-            <option value="Neonderthaw, cursive" style="font-family: Neonderthaw, cursive">Neonderthaw</option>
-            <option value="Fruktur cursive" style="font-family: Fruktur, cursive">Fruktur</option>
-            <option value="Erica One, cursive" style="font-family: Erica One, cursive">Erica One</option>
-            <option value="Roboto, sans-serif" style="font-family: Roboto, sans-serif">Roboto</option>
-        </select>
+        <div class="text-white mx-auto" id="scoreboard" width="400" height="400"></div>
         </div>
         </div>
     </div>
 </div>
-    <script>
-        const c = document.getElementById("colorPicker")
-
-        document.addEventListener("DOMContentLoaded", function(event) {
-            c.value = localStorage.getItem("playerNameColor")
-            const p = document.getElementById("playerName")
-            p.innerHTML = localStorage.getItem("playerName")
-            p.style.color = localStorage.getItem("playerNameColor")
-            p.style.fontFamily  = localStorage.getItem("playerNameFontFamily");
-            // Your code to run since DOM is loaded and ready
-        });
-
-        function changeFont () {
-            let x = document.getElementById("fontDropdown").value;
-            document.getElementById("playerName").style.fontFamily  = x;
-            localStorage.setItem('playerNameFontFamily', x)
-        }
-        
-        c.addEventListener("input", function() {
-            localStorage.setItem('playerNameColor', c.value)
-            const p = document.getElementById("playerName")
-            p.style.color =  c.value
-        })
-    </script>
+<style>
+    body {
+      background-image: url('assets/images/dirt.png');
+    }
+</style>
+<script type="module" src="./build/scoreboardPage.js"></script>
 </body>
 </html>

@@ -497,12 +497,16 @@ Ensure the default browser behavior of the `hidden` attribute.
   left: 0px;
 }
 
-.order-3 {
-  order: 3;
+.top-0 {
+  top: 0px;
 }
 
-.order-2 {
-  order: 2;
+.right-0 {
+  right: 0px;
+}
+
+.order-3 {
+  order: 3;
 }
 
 .mx-auto {
@@ -526,8 +530,8 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-top: 0.5rem;
 }
 
-.-mr-1 {
-  margin-right: -0.25rem;
+.mr-2 {
+  margin-right: 0.5rem;
 }
 
 .block {
@@ -558,6 +562,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   height: 2rem;
 }
 
+.h-full {
+  height: 100%;
+}
+
 .w-6 {
   width: 1.5rem;
 }
@@ -570,12 +578,12 @@ Ensure the default browser behavior of the `hidden` attribute.
   width: 20rem;
 }
 
-.w-0 {
-  width: 0px;
-}
-
 .w-full {
   width: 100%;
+}
+
+.w-0 {
+  width: 0px;
 }
 
 .max-w-7xl {
@@ -666,9 +674,9 @@ Ensure the default browser behavior of the `hidden` attribute.
   background-color: rgb(17 24 39 / var(--tw-bg-opacity));
 }
 
-.bg-blue-600 {
+.bg-indigo-600 {
   --tw-bg-opacity: 1;
-  background-color: rgb(37 99 235 / var(--tw-bg-opacity));
+  background-color: rgb(79 70 229 / var(--tw-bg-opacity));
 }
 
 .bg-indigo-800 {
@@ -679,11 +687,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
-}
-
-.bg-indigo-600 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(79 70 229 / var(--tw-bg-opacity));
 }
 
 .p-2 {
@@ -938,11 +941,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   background-color: rgb(238 242 255 / var(--tw-bg-opacity));
 }
 
-.hover\:bg-indigo-500:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(99 102 241 / var(--tw-bg-opacity));
-}
-
 .hover\:text-white:hover {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
@@ -973,24 +971,12 @@ Ensure the default browser behavior of the `hidden` attribute.
     order: 2;
   }
 
-  .sm\:order-3 {
-    order: 3;
-  }
-
   .sm\:ml-6 {
     margin-left: 1.5rem;
   }
 
   .sm\:mt-0 {
     margin-top: 0px;
-  }
-
-  .sm\:ml-3 {
-    margin-left: 0.75rem;
-  }
-
-  .sm\:-mr-2 {
-    margin-right: -0.5rem;
   }
 
   .sm\:block {
@@ -1022,10 +1008,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 @media (min-width: 768px) {
   .md\:inline {
     display: inline;
-  }
-
-  .md\:hidden {
-    display: none;
   }
 }
 
