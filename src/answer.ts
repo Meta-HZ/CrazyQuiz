@@ -86,10 +86,10 @@ export default class Answer {
    */
   public drawAnswer(ctx: CanvasRenderingContext2D): void {
 
-        // add border around the answer
-        ctx.strokeStyle = "black";
-        ctx.lineWidth = 2;
-        ctx.strokeRect(this.getXPosition(), this.getYPosition(), this.getImage().width, this.getImage().height);
+    // add border around the answer
+    ctx.strokeStyle = "black";
+    ctx.lineWidth = 2;
+    ctx.strokeRect(this.getXPosition(), this.getYPosition(), this.getImage().width, this.getImage().height);
 
         
     // write the player to the canvas

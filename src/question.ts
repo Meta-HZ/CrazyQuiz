@@ -12,17 +12,15 @@ export default class Question {
   private image: HTMLImageElement;
 
   private canvasWidth: number;
-
   //random X and Y for question box
   private randomX: number;
 
   private randomY: number;
 
   public constructor(canvasWidth: number, question: string, isAnswered: boolean, answer: string, answers: string[]) {
-    this.canvasWidth = canvasWidth;
     //generate random question on canvas working space
-    this.randomX = Math.random() * (canvasWidth - 100) + 250;
-    this.randomY = Math.random() * (this.canvasWidth - 500) + 300;
+    this.randomX = Math.floor(Math.random() * (canvasWidth - 500)) + 200;
+    this.randomY = Math.floor(Math.random() * 750) + 100;
 
     this.question = question;
     this.answer = answer;
@@ -134,12 +132,18 @@ export default class Question {
    * @param ctx rendering context
    */
   public drawQuestion(ctx: CanvasRenderingContext2D): void {
-    // write the question to the canvas
-    ctx.drawImage(this.image, this.randomX - 0, this.randomX - 0,20,20);
+    // add border around the answer
+    ctx.strokeStyle = "black";
+    ctx.lineWidth = 2;
+    ctx.strokeRect(this.getXPosition(), this.getYPosition(), this.getImage().width, this.getImage().height);
+
+        
+    // write the player to the canvas
+    ctx.drawImage(this.image, this.randomX, this.randomY,20,20);
     let font = '16px ' + localStorage.getItem("playerNameFontFamily");
     // write the player name above player image to the canvas
     ctx.font = font 
     ctx.fillStyle = "white"
-    ctx.fillText(this.question, this.randomX - 0, this.randomX - 0,);
+    ctx.fillText(this.question, this.randomX - 0, this.randomY - 10);
   }
 }

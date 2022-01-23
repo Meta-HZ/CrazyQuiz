@@ -120,12 +120,13 @@ export default class Game {
       this.questions.forEach((question) => {
         if (question.isAnswered) {
         } else {
-          if (count < 3) {
+          if (count < 4) {
             question.drawQuestion(this.ctx);
           }
           count++
         }
       });
+      count = 0
     }
 
     if (this.answers.length !== 0) {
@@ -149,6 +150,7 @@ export default class Game {
   private loop = (): void => {
     this.move();
     this.draw();
+    this.player.collidesWithSide(this.canvas)
     let question: Question = this.player.collidesWithBlock(this.questions);
     let answer: Answer = this.player.collidesWithAnswer(this.answers);
     if(this.player.hasCollidedWithAnswer) {

@@ -188,12 +188,29 @@ export default class Player {
         if (!question.isAnswered) {
           question.isAnswered = true
         }
-        console.log(question)
         collidedQuestion = question;
       }
     });
     return collidedQuestion;
   }
+
+  /**
+   * Method to determine whether the player collides with the top or bottom of the screen
+   *
+   * @param canvas canvas of the game
+   * @returns true or false
+   */
+  public collidesWithSide(canvas: HTMLCanvasElement) : void {
+    if ( this.yPosition < 0 || this.yPosition + this.image.height > canvas.height ) {
+      this.setXPosition(60);
+      this.setYPosition(140);
+    }
+    if (this.xPosition < 0 || this.xPosition + this.image.width > canvas.width ) {
+      this.setXPosition(60);
+      this.setYPosition(140);
+    }
+  }
+  
 
    /**
    * Method to determine if the player is colliding with a answer
