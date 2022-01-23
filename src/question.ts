@@ -30,6 +30,8 @@ export default class Question {
     this.answers = answers;
 
     this.image = Game.loadNewImage('/assets/images/chest.png');
+    this.image.width = 20
+    this.image.height = 20
   }
 
   /**
@@ -113,7 +115,7 @@ export default class Question {
    * @param ctx rendering context
    */
   public drawQuestion(ctx: CanvasRenderingContext2D): void {
-    // write the player to the canvas
+    // write the question to the canvas
     ctx.drawImage(this.image, this.randomX - 0, this.randomX - 0,20,20);
     let font = '16px ' + localStorage.getItem("playerNameFontFamily");
     // write the player name above player image to the canvas
