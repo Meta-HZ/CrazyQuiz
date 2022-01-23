@@ -153,19 +153,19 @@ export default class Game {
     this.player.collidesWithSide(this.canvas)
     let question: Question = this.player.collidesWithBlock(this.questions);
     let answer: Answer = this.player.collidesWithAnswer(this.answers);
+
+    if (this.player.health === 0) {
+      window.location.href = "death.html"
+    }
     if(this.player.hasCollidedWithAnswer) {
       if(answer.isCorrect) {
-        console.log("correct");
         this.scoreboard.increaseScore(this.player.name);
         this.answers = [];
         this.getRandomQuestions()
       } else {
         this.answers = [];
         this.getRandomQuestions()
-        console.log("wrong");
         this.player.health -= 1;
-        
-
       }
     }
     if(this.player.hasCollidedWithQuestion) {

@@ -247,11 +247,6 @@ export default class Player {
     for (let i = 0; i < this.getHealth(); i++) {
       ctx.drawImage(this.healthImage, i * 30, 70, 30, 30);
     }
-    // add border around the answer
-    ctx.strokeStyle = "black";
-    ctx.lineWidth = 2;
-    ctx.strokeRect(this.getXPosition(), this.getYPosition(), this.getImage().width, this.getImage().height);
-
     // write the player to the canvas
     ctx.drawImage(this.image, this.xPosition, this.yPosition,);
     let font = "16px " + localStorage.getItem("playerNameFontFamily");

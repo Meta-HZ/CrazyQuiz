@@ -5,6 +5,8 @@ export default class Question {
 
   public isAnswered: boolean;
 
+  public showQuestions: boolean = true;
+
   public answer: string;
 
   public answers: string[];
@@ -132,18 +134,14 @@ export default class Question {
    * @param ctx rendering context
    */
   public drawQuestion(ctx: CanvasRenderingContext2D): void {
-    // add border around the answer
-    ctx.strokeStyle = "black";
-    ctx.lineWidth = 2;
-    ctx.strokeRect(this.getXPosition(), this.getYPosition(), this.getImage().width, this.getImage().height);
-
-        
-    // write the player to the canvas
-    ctx.drawImage(this.image, this.randomX, this.randomY,20,20);
-    let font = '16px ' + localStorage.getItem("playerNameFontFamily");
-    // write the player name above player image to the canvas
-    ctx.font = font 
-    ctx.fillStyle = "white"
-    ctx.fillText(this.question, this.randomX - 0, this.randomY - 10);
+    if (this.showQuestions) {
+      // write the player to the canvas
+      ctx.drawImage(this.image, this.randomX, this.randomY,20,20);
+      let font = '16px ' + localStorage.getItem("playerNameFontFamily");
+      // write the player name above player image to the canvas
+      ctx.font = font 
+      ctx.fillStyle = "white"
+      ctx.fillText(this.question, this.randomX - 0, this.randomY - 10);
+    }
   }
 }
