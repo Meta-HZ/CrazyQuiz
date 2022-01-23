@@ -5,6 +5,8 @@ export default class Answer {
 
   public isCorrect: boolean;
 
+  public currentQuestion: string;
+
   private image: HTMLImageElement;
 
   //random X and Y for answer box
@@ -15,15 +17,19 @@ export default class Answer {
   /**
    * Initialize the Answer class
    *
-   * @param canvasId id of the canvas
+   * @param canvasWidth width of the canvas
+   * @param answer correct answer
+   * @param isCorrect if the answer is correct
+   * @param currentQuestion current question
    */
-  public constructor(canvasWidth: number, answer: string, isCorrect: boolean) {
+  public constructor(canvasWidth: number, answer: string, isCorrect: boolean, currentQuestion: string) {
     //generate random question on canvas working space
     this.randomX = Math.floor(Math.random() * (canvasWidth - 500)) + 200;
     this.randomY = Math.floor(Math.random() * 750) + 100;
 
     this.answer = answer;
     this.isCorrect = isCorrect;
+    this.currentQuestion = currentQuestion;
 
     this.image = Game.loadNewImage('/assets/images/chest.png');
     this.image.width = 20
@@ -85,6 +91,20 @@ export default class Answer {
   }
 
   /**
+   * Method to draw the current questionn the canvas
+   * 
+   * @param ctx rendering context
+   */
+  public drawCurrentQuestion(ctx: CanvasRenderingContext2D): void {
+    let font = '25px ' + localStorage.getItem("playerNameFontFamily");
+    // write the answer the image to the canvas
+    ctx.font = font 
+    ctx.fillStyle = "black"
+    ctx.fillText(this.currentQuestion, 100, 100);
+  }
+
+
+  /**
    * Method to draw a answer on the canvas
    * 
    * @param ctx rendering context
@@ -97,5 +117,7 @@ export default class Answer {
     ctx.font = font 
     ctx.fillStyle = "white"
     ctx.fillText(this.answer, this.randomX - 0, this.randomY - 10);
+
+    this.drawCurrentQuestion(ctx)
   }
 }
