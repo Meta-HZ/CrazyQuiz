@@ -38,28 +38,25 @@ export default class Scoreboard {
     });
   }
 
-  // Unused
-  public setScores(name: string, score: number): void {
-    this.scores.push({ name, score });
-  }
+  /**
+   * Draw the Scoreboard on the banner
+   *
+   */
+  public draw(): void {
+    let topPlayers = document.getElementById("TopPlayers");
+    topPlayers.innerHTML = `Huidige score is: ${this.score}  `;
 
-    /**
-     * Draw the Scoreboard on the banner
-     *
-     */
-    public draw(): void {
-        let topPlayers = document.getElementById("TopPlayers")
-        topPlayers.innerHTML = `Huidige score is: ${this.score}  `
-       
-        // draw the top 5 scores and names in descending order
-        for (let i = 0; i < this.scores.length; i++) {
-            // draw an crown emoji for the first place behind the name
-            if (i === 0) {
-                topPlayers.innerHTML = topPlayers.innerHTML + `en de top 3 is: 🏆 `
-            }
-            if (i < 3) {
-                topPlayers.innerHTML = topPlayers.innerHTML + `${this.scores[i].name}: ${this.scores[i].score}. `
-            }
-        }
+    // draw the top 5 scores and names in descending order
+    for (let i = 0; i < this.scores.length; i++) {
+      // draw an crown emoji for the first place behind the name
+      if (i === 0) {
+        topPlayers.innerHTML = topPlayers.innerHTML + `en de top 3 is: 🏆 `;
+      }
+      if (i < 3) {
+        topPlayers.innerHTML =
+          topPlayers.innerHTML +
+          `${this.scores[i].name}: ${this.scores[i].score}. `;
+      }
     }
+  }
 }

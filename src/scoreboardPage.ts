@@ -5,6 +5,11 @@ import { Score, getScores } from "./api/scoreController.js";
 let scoreboard = document.getElementById("scoreboard");
 
 getScore();
+
+/**
+ * Method to create the scoreboard page
+ * 
+ */
 function getScore() {
     getScores().then((res: Score[]) => {
         // sort the scores in descending order

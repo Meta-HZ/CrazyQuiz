@@ -1,8 +1,8 @@
 export interface QuestionData {
-  question: string
-  answered: boolean
-  answer: string
-  answers: string[]
+  question: string;
+  answered: boolean;
+  answer: string;
+  answers: string[];
 }
 
 import Player from "./Player.js";
@@ -20,9 +20,9 @@ export default class Game {
 
   private ctx: CanvasRenderingContext2D;
 
-  private questionsJson: { 
-    question: string; 
-    answered: boolean; 
+  private questionsJson: {
+    question: string;
+    answered: boolean;
     answer: string;
     answers: string[];
   }[] = [];
@@ -46,8 +46,7 @@ export default class Game {
     this.getQuestions().then((response: QuestionData[]) => {
       this.questionsJson = response;
       for (let i = 0; i < 3; i++) {
-        
-        let randomNumber = this.getNumber()
+        let randomNumber = this.getNumber();
 
         this.questions.push(
           new Question(
@@ -61,8 +60,6 @@ export default class Game {
       }
     });
 
-
-
     this.scoreboard = new Scoreboard();
 
     // Get scores from the database
@@ -70,11 +67,12 @@ export default class Game {
     this.loop();
   }
 
-
-  // getNumber generates a different random number in the inclusive range [0, 4]
-  private getNumber = (function() {
+  /**
+   * Method to get a random number
+   */
+  private getNumber = (function () {
     var previous = NaN;
-    return function() {
+    return function () {
       var min = 0;
       var max = 5 + (!isNaN(previous) ? -1 : 0);
       var value = Math.floor(Math.random() * (max - min + 1)) + min;
@@ -86,11 +84,15 @@ export default class Game {
     };
   })();
 
-
+  /**
+   * Method to get the questions from the json files
+   *
+   * @returns the questions json
+   */
   private async getQuestions(): Promise<QuestionData[]> {
-    const res = await fetch("questions.json")
+    const res = await fetch("questions.json");
     const res_1 = await res.json();
-    return res_1 as QuestionData[]
+    return res_1 as QuestionData[];
   }
 
   /**
@@ -125,9 +127,9 @@ export default class Game {
     let collides = this.player.collidesWithBlock(this.questions);
 
     if (collides) {
-      this.questions = []
+      this.questions = [];
     }
-    
+
     requestAnimationFrame(this.loop);
   };
 

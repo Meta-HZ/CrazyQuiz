@@ -106,6 +106,11 @@ export default class Question {
     ctx.fillRect(this.randomX, this.randomY, 30,30)
   }
 
+  /**
+   * Method to draw a question on the canvas
+   * 
+   * @param ctx rendering context
+   */
   public drawQuestion(ctx: CanvasRenderingContext2D): void {
     // write the player to the canvas
     ctx.drawImage(this.image, this.randomX, this.randomY,20,20);
@@ -116,6 +121,12 @@ export default class Question {
     ctx.fillText(this.question, this.randomX - 0, this.randomY - 10);
   }
 
+  /**
+   * Method to draw the answers on the canvas
+   * 
+   * @param ctx rendering context
+   * @param answers the answers to the questions
+   */
   public drawAnswers (ctx: CanvasRenderingContext2D, answers: string[]): void {
 
     for (let i = 0; i < answers.length; i++) {
