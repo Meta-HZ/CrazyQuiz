@@ -18,6 +18,34 @@ export async function getScores(): Promise<Score[]> {
 }
 
 /**
+ * method to increment the score of the player
+ *
+ * @param name name of the player
+ * @returns the response of the request
+ */
+export async function incrementScore(name: string): Promise<void> {
+  const res = await fetch(
+    `https://us-central1-crazyquiz-99d2d.cloudfunctions.net/incrementScore?name=${name}`
+  );
+  const res_1 = await res.json();
+  return res_1 as void;
+}
+
+/**
+ * method to decrement the score of the player
+ *
+ * @param name
+ * @returns the response of the request
+ */
+export async function decrementScore(name: string): Promise<void> {
+  const res = await fetch(
+    `https://us-central1-crazyquiz-99d2d.cloudfunctions.net/decrementScore?name=${name}`
+  );
+  const res_1 = await res.json();
+  return res_1 as void;
+}
+
+/**
  * method to add a new score to the database
  *
  * @param name the name of the player

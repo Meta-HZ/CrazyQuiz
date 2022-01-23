@@ -152,8 +152,17 @@ export default class Game {
     let answer: Answer = this.player.collidesWithAnswer(this.answers);
     if(this.player.hasCollidedWithAnswer) {
       if(answer.isCorrect) {
+        console.log("correct");
+        this.scoreboard.increaseScore(this.player.name);
         this.answers = [];
         this.getRandomQuestions()
+      } else {
+        this.answers = [];
+        this.getRandomQuestions()
+        console.log("wrong");
+        this.player.health -= 1;
+        
+
       }
     }
     if(this.player.hasCollidedWithQuestion) {

@@ -1,4 +1,4 @@
-import { Score, getScores, setScore } from "./api/scoreController.js";
+import { Score, getScores, setScore, incrementScore, decrementScore } from "./api/scoreController.js";
 
 export default class Scoreboard {
   private score: number;
@@ -24,6 +24,15 @@ export default class Scoreboard {
     this.score = score;
     setScore(name, score);
   }
+
+  public increaseScore(name: string): void {
+    incrementScore(name);
+  }
+
+  public decreaseScore(name: string): void {
+    decrementScore(name);
+  }
+
 
   // Get scores from the database
   public getScores(): Promise<Score[]> {
