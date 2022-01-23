@@ -1,7 +1,7 @@
 [
     {
         "question": "Wat is internet veiligheid?",
-        "answered": false,
+        "answered": true,
         "answer": "Beschermen van digitale informatie",
         "answers": [
             "Beschermen van digitale informatie",
@@ -12,7 +12,7 @@
     {
         
         "question": "Wat gebeurt er wanneer je een foto online zet?",
-        "answered": false,
+        "answered": true,
         "answer": "De foto is altijd terug te vinden",
         "answers": [
             "De foto is altijd terug te vinden" ,
@@ -22,7 +22,7 @@
     },
     {
         "question": "Wat is een goed wachtwoord?",
-        "answered": false,
+        "answered": true,
         "answer": "Wanneer het kleine letters, hoofdletters, cijfers en speciale tekens gebruikt",
         "answers": [
             "Wanneer het kleine letters, hoofdletters, cijfers en speciale tekens gebruikt" ,
@@ -32,7 +32,7 @@
     },
     {
         "question": "Wat is mediawijsheid?",
-        "answered": false,
+        "answered": true,
         "answer": "Het goed om kunnen gaan met het internet",
         "answers": [
             "Het goed om kunnen gaan met het internet",
@@ -42,7 +42,7 @@
     },
     {
         "question": "Waarom is mediawijsheid belangrijk?",
-        "answered": false,
+        "answered": true,
         "answer": "Zodat je weet hoe je met het internet om moet gaan",
         "answers": [
             "Zodat je weet hoe je met het internet om moet gaan" ,
@@ -52,7 +52,7 @@
     },
     {
         "question": "What is Data Safety?",
-        "answered": false,
+        "answered": true,
         "answer": "Protection of digital assets",
         "answers": [
             "Protection of digital assets" ,

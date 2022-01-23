@@ -7,11 +7,13 @@ export default class Question {
 
   public answer: string;
 
-  private answers: string[];
+  public answers: string[];
 
   public health: number;
 
   private image: HTMLImageElement;
+
+  private canvasWidth: number;
 
   //random X and Y for question box
   private randomX: number;
@@ -19,8 +21,9 @@ export default class Question {
   private randomY: number;
 
   public constructor(canvasWidth: number, question: string, isAnswered: boolean, answer: string, answers: string[]) {
+    this.canvasWidth = canvasWidth;
     //generate random question on canvas working space
-    this.randomX = Math.floor(Math.random() * (canvasWidth - 500)) + 200;
+    this.randomX = Math.floor(Math.random() * (this.canvasWidth - 500)) + 200;
     this.randomY = Math.floor(Math.random() * 750) + 100;
 
     this.question = question;
@@ -119,26 +122,5 @@ export default class Question {
     ctx.font = font 
     ctx.fillStyle = "white"
     ctx.fillText(this.question, this.randomX - 0, this.randomY - 10);
-  }
-
-  /**
-   * Method to draw the answers on the canvas
-   * 
-   * @param ctx rendering context
-   * @param answers the answers to the questions
-   */
-  public drawAnswers (ctx: CanvasRenderingContext2D, answers: string[]): void {
-
-    for (let i = 0; i < answers.length; i++) {
-      console.log(answers[i])
-      // write the player to the canvas
-      ctx.drawImage(this.image, this.randomX, this.randomY,20,20);
-      let font = '16px ' + localStorage.getItem("playerNameFontFamily");
-      // write the player name above player image to the canvas
-      ctx.font = font 
-      ctx.fillStyle = "white"
-      ctx.fillText(answers[i], 100, 100);
-    }
-    
   }
 }

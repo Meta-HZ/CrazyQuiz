@@ -7,6 +7,7 @@ export interface QuestionData {
 
 import Player from "./Player.js";
 import Question from "./question.js";
+import Answer from "./answer.js";
 import Scoreboard from "./scoreboard.js";
 
 export default class Game {
@@ -15,6 +16,8 @@ export default class Game {
   private scoreboard: Scoreboard;
 
   private questions: Question[];
+
+  private answers: Answer[];
 
   private canvas: HTMLCanvasElement;
 
@@ -43,9 +46,11 @@ export default class Game {
 
     this.questions = [];
 
+    this.answers = [];
+
     this.getQuestions().then((response: QuestionData[]) => {
       this.questionsJson = response;
-      for (let i = 0; i < 3; i++) {
+      for (let i = 0; i < this.questionsJson.length; i++) {
         let randomNumber = this.getNumber();
 
         this.questions.push(
@@ -104,9 +109,19 @@ export default class Game {
     this.scoreboard.draw();
 
     if (this.questions.length !== 0) {
+      console.log("true")
       // draw each question item
       this.questions.forEach((question) => {
-        question.drawQuestion(this.ctx);
+        if(!question.isAnswered) {
+          question.drawQuestion(this.ctx);
+        }
+      });
+    }
+
+    if (this.answers.length !== 0) {
+      // draw each question item
+      this.answers.forEach((answer) => {
+        answer.drawAnswer(this.ctx);
       });
     }
   }
@@ -124,10 +139,24 @@ export default class Game {
   private loop = (): void => {
     this.move();
     this.draw();
-    let collides = this.player.collidesWithBlock(this.questions);
-
-    if (collides) {
+    let question: Question = this.player.collidesWithBlock(this.questions);
+    if(this.player.hasCollided) {
       this.questions = [];
+      for (let i = 0; i < question.answers.length; i++) {
+        let isCorrect: boolean;
+        if(question.answers[i] === question.answer) {
+          isCorrect = true
+        }else {
+          isCorrect = false
+        }
+        this.answers.push(
+          new Answer(
+            this.canvas.width,
+            question.answer,
+            isCorrect
+          )
+        );
+      }
     }
 
     requestAnimationFrame(this.loop);
