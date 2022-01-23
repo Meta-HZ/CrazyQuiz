@@ -79,7 +79,7 @@ export default class Question {
     this.randomY = randomY;
   }
 
-    /**
+  /**
    * Get the image
    *
    * @returns the image of  the GameItem
@@ -96,6 +96,25 @@ export default class Question {
   public setImage(image: HTMLImageElement): void {
     this.image = image;
   }
+
+  /**
+   * Get the image
+   *
+   * @returns the image of  the GameItem
+   */
+   public getIsAnswerd(): boolean {
+    return this.isAnswered;
+  }
+  
+  /**
+   * Set the image of the GameItem
+   *
+   * @param image the image of the GameItem
+   */
+  public setIsAnswered(isAnswered: boolean): void {
+    this.isAnswered = isAnswered;
+  }
+
 
   /**
    * Draw a question on the canvas

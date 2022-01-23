@@ -185,6 +185,10 @@ export default class Player {
         this.getYPosition() + this.getImage().height > question.getYPosition()
       ) {
         this.hasCollidedWithQuestion = true;
+        if (!question.isAnswered) {
+          question.isAnswered = true
+        }
+        console.log(question)
         collidedQuestion = question;
       }
     });

@@ -48,22 +48,7 @@ export default class Game {
 
     this.answers = [];
 
-    this.getQuestions().then((response: QuestionData[]) => {
-      this.questionsJson = response;
-      for (let i = 0; i < this.questionsJson.length; i++) {
-        let randomNumber = this.getNumber();
-
-        this.questions.push(
-          new Question(
-            this.canvas.width,
-            this.questionsJson[randomNumber].question,
-            this.questionsJson[randomNumber].answered,
-            this.questionsJson[randomNumber].answer,
-            this.questionsJson[randomNumber].answers
-          )
-        );
-      }
-    });
+    this.getRandomQuestions()
 
     this.scoreboard = new Scoreboard();
 
@@ -98,6 +83,26 @@ export default class Game {
     const res = await fetch("questions.json");
     const res_1 = await res.json();
     return res_1 as QuestionData[];
+  }
+
+
+  private getRandomQuestions() {
+    this.getQuestions().then((response: QuestionData[]) => {
+      this.questionsJson = response;
+      for (let i = 0; i < this.questionsJson.length; i++) {
+        let randomNumber = this.getNumber();
+
+        this.questions.push(
+          new Question(
+            this.canvas.width,
+            this.questionsJson[randomNumber].question,
+            this.questionsJson[randomNumber].answered,
+            this.questionsJson[randomNumber].answer,
+            this.questionsJson[randomNumber].answers
+          )
+        );
+      }
+    });
   }
 
   /**
@@ -147,7 +152,8 @@ export default class Game {
     let answer: Answer = this.player.collidesWithAnswer(this.answers);
     if(this.player.hasCollidedWithAnswer) {
       if(answer.isCorrect) {
-        alert("Correct Answer!")
+        this.answers = [];
+        this.getRandomQuestions()
       }
     }
     if(this.player.hasCollidedWithQuestion) {
@@ -162,7 +168,7 @@ export default class Game {
         this.answers.push(
           new Answer(
             this.canvas.width,
-            question.answer,
+            question.answers[i],
             isCorrect
           )
         );
