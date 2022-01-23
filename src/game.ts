@@ -190,7 +190,8 @@ export default class Game {
           new Answer(
             this.canvas.width,
             question.answers[i],
-            isCorrect
+            isCorrect,
+            question.question
           )
         );
       }

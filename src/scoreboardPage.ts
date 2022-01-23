@@ -6,7 +6,6 @@ getScore();
 
 /**
  * Method to create the scoreboard page
- * 
  */
 function getScore() {
     getScores().then((res: Score[]) => {

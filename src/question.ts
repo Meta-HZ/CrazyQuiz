@@ -23,6 +23,10 @@ export default class Question {
    * Initialize the Question class
    *
    * @param canvasId id of the canvas
+   * @param question the question
+   * @param isAnswered true if the question is answered
+   * @param answer correct answer
+   * @param answers all the possible answers
    */
   public constructor(canvasWidth: number, question: string, isAnswered: boolean, answer: string, answers: string[]) {
     //generate random question on canvas working space
