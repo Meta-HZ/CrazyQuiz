@@ -51,6 +51,7 @@ export default class Game {
     this.getRandomQuestions()
 
     this.scoreboard = new Scoreboard();
+    this.scoreboard.setScore(this.player.name, 0);
 
     // Get scores from the database
     this.scoreboard.getScores();

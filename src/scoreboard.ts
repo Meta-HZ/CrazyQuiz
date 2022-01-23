@@ -27,10 +27,12 @@ export default class Scoreboard {
 
   public increaseScore(name: string): void {
     incrementScore(name);
+    this.score++;
   }
 
   public decreaseScore(name: string): void {
     decrementScore(name);
+    this.score--;
   }
 
 
