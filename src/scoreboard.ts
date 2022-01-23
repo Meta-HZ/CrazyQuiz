@@ -6,6 +6,11 @@ export default class Scoreboard {
   // array with Score objects
   private scores: { name: string; score: number }[] = [];
 
+  /**
+   * Initialize the scoreboard class
+   *
+   * @param canvasId id of the canvas
+   */
   public constructor() {
     this.score = 0;
   }
@@ -25,11 +30,21 @@ export default class Scoreboard {
     setScore(name, score);
   }
 
+  /**
+   *  Increase the score to the database
+   *
+   * @param name name of the player
+   */
   public increaseScore(name: string): void {
     incrementScore(name);
     this.score++;
   }
 
+  /**
+   *  Decrease the score to the database
+   *
+   * @param name name of the player
+   */
   public decreaseScore(name: string): void {
     decrementScore(name);
     this.score--;
@@ -51,7 +66,6 @@ export default class Scoreboard {
 
   /**
    * Draw the Scoreboard on the banner
-   *
    */
   public draw(): void {
     let topPlayers = document.getElementById("TopPlayers");

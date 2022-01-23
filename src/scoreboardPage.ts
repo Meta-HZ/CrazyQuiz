@@ -1,5 +1,3 @@
-console.log('Scoreboard is working!');
-
 import { Score, getScores } from "./api/scoreController.js";
 
 let scoreboard = document.getElementById("scoreboard");

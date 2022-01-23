@@ -13,12 +13,17 @@ export default class Question {
 
   private image: HTMLImageElement;
 
-  private canvasWidth: number;
   //random X and Y for question box
   private randomX: number;
 
   private randomY: number;
 
+
+  /**
+   * Initialize the Question class
+   *
+   * @param canvasId id of the canvas
+   */
   public constructor(canvasWidth: number, question: string, isAnswered: boolean, answer: string, answers: string[]) {
     //generate random question on canvas working space
     this.randomX = Math.floor(Math.random() * (canvasWidth - 500)) + 200;
@@ -82,16 +87,16 @@ export default class Question {
   /**
    * Get the image
    *
-   * @returns the image of  the GameItem
+   * @returns the image of question
    */
   public getImage(): HTMLImageElement {
     return this.image;
   }
   
   /**
-   * Set the image of the GameItem
+   * Set the image of the question
    *
-   * @param image the image of the GameItem
+   * @param image the image of the question
    */
   public setImage(image: HTMLImageElement): void {
     this.image = image;
@@ -100,7 +105,7 @@ export default class Question {
   /**
    * Get the image
    *
-   * @returns the image of  the GameItem
+   * @returns the image of the question
    */
    public getIsAnswerd(): boolean {
     return this.isAnswered;
@@ -135,10 +140,10 @@ export default class Question {
    */
   public drawQuestion(ctx: CanvasRenderingContext2D): void {
     if (this.showQuestions) {
-      // write the player to the canvas
+      // write the question image to the canvas
       ctx.drawImage(this.image, this.randomX, this.randomY,20,20);
       let font = '16px ' + localStorage.getItem("playerNameFontFamily");
-      // write the player name above player image to the canvas
+      // write the question above question image to the canvas
       ctx.font = font 
       ctx.fillStyle = "white"
       ctx.fillText(this.question, this.randomX - 0, this.randomY - 10);

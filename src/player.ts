@@ -26,7 +26,10 @@ export default class Player {
 
   private canvas: CanvasRenderingContext2D;
 
-  public constructor(canvasWidth: number, canvasHeight: number) {
+  /**
+   * Initialize the Player class
+   */
+  public constructor() {
     this.name = localStorage.getItem("playerName");
     this.health = 3;
     this.hasCollidedWithQuestion = false
@@ -171,8 +174,8 @@ export default class Player {
   /**
    * Method to determine if the player is colliding with a question
    *
-   * @param questions questions in the game
-   * @returns Question
+   * @param questions current questions in the game
+   * @returns Question that player has collided with
    */
   public collidesWithBlock(questions: Question[]): Question {
     let collidedQuestion: Question;
@@ -195,10 +198,9 @@ export default class Player {
   }
 
   /**
-   * Method to determine whether the player collides with the top or bottom of the screen
+   * Method to determine whether the player collides with the top, bottom, left or right side of the screen
    *
    * @param canvas canvas of the game
-   * @returns true or false
    */
   public collidesWithSide(canvas: HTMLCanvasElement) : void {
     if ( this.yPosition < 0 || this.yPosition + this.image.height > canvas.height ) {
@@ -212,11 +214,11 @@ export default class Player {
   }
   
 
-   /**
-   * Method to determine if the player is colliding with a answer
+  /**
+   * Method to determine if the player is colliding with an answer
    *
    * @param answers answers in the game
-   * @returns Answer
+   * @returns Answer player collided with
    */
   public collidesWithAnswer(answers: Answer[]): Answer {
     let collidedAnswer: Answer;

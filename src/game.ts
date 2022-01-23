@@ -1,14 +1,15 @@
+import Player from "./player.js";
+import Question from "./question.js";
+import Answer from "./answer.js";
+import Scoreboard from "./scoreboard.js";
+
+/* Interface need for fetching data and mapping it from question.json file */
 export interface QuestionData {
   question: string;
   answered: boolean;
   answer: string;
   answers: string[];
 }
-
-import Player from "./player.js";
-import Question from "./question.js";
-import Answer from "./answer.js";
-import Scoreboard from "./scoreboard.js";
 
 export default class Game {
   private player: Player;
@@ -23,6 +24,7 @@ export default class Game {
 
   private ctx: CanvasRenderingContext2D;
 
+  /* Needed for mapping json questions.json file*/
   private questionsJson: {
     question: string;
     answered: boolean;
@@ -42,7 +44,7 @@ export default class Game {
 
     this.ctx = <CanvasRenderingContext2D>this.canvas.getContext("2d");
 
-    this.player = new Player(this.canvas.width, this.canvas.height);
+    this.player = new Player();
 
     this.questions = [];
 
@@ -86,7 +88,9 @@ export default class Game {
     return res_1 as QuestionData[];
   }
 
-
+  /**
+   * Method to get random question from the json file
+   */
   private getRandomQuestions() {
     this.getQuestions().then((response: QuestionData[]) => {
       this.questionsJson = response;
@@ -138,7 +142,7 @@ export default class Game {
   }
 
   /**
-   * Method to move the scoring items
+   * Method to move the player
    */
   private move(): void {
     this.player.move();
@@ -154,24 +158,29 @@ export default class Game {
     let question: Question = this.player.collidesWithBlock(this.questions);
     let answer: Answer = this.player.collidesWithAnswer(this.answers);
 
+    // check if player has any hearts left
     if (this.player.health === 0) {
       window.location.href = "death.html"
     }
+    // check if player has collised with an answer
     if(this.player.hasCollidedWithAnswer) {
+      // Check if the answer the player collided with is correct
       if(answer.isCorrect) {
-        this.scoreboard.increaseScore(this.player.name);
         this.answers = [];
         this.getRandomQuestions()
+        this.scoreboard.increaseScore(this.player.name);
       } else {
         this.answers = [];
         this.getRandomQuestions()
         this.player.health -= 1;
       }
     }
+    // check if player has collised with a question
     if(this.player.hasCollidedWithQuestion) {
       this.questions = [];
       for (let i = 0; i < question.answers.length; i++) {
         let isCorrect: boolean;
+        // Mark question as correct
         if(question.answers[i] === question.answer) {
           isCorrect = true
         }else {
@@ -186,7 +195,6 @@ export default class Game {
         );
       }
     }
-
     requestAnimationFrame(this.loop);
   };
 
