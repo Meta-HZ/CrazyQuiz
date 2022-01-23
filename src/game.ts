@@ -109,11 +109,15 @@ export default class Game {
     this.scoreboard.draw();
 
     if (this.questions.length !== 0) {
-      console.log("true")
+      let count = 0;
       // draw each question item
       this.questions.forEach((question) => {
-        if(!question.isAnswered) {
-          question.drawQuestion(this.ctx);
+        if (question.isAnswered) {
+        } else {
+          if (count < 3) {
+            question.drawQuestion(this.ctx);
+          }
+          count++
         }
       });
     }
@@ -140,7 +144,13 @@ export default class Game {
     this.move();
     this.draw();
     let question: Question = this.player.collidesWithBlock(this.questions);
-    if(this.player.hasCollided) {
+    let answer: Answer = this.player.collidesWithAnswer(this.answers);
+    if(this.player.hasCollidedWithAnswer) {
+      if(answer.isCorrect) {
+        alert("Correct Answer!")
+      }
+    }
+    if(this.player.hasCollidedWithQuestion) {
       this.questions = [];
       for (let i = 0; i < question.answers.length; i++) {
         let isCorrect: boolean;

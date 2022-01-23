@@ -9,8 +9,6 @@ export default class Question {
 
   public answers: string[];
 
-  public health: number;
-
   private image: HTMLImageElement;
 
   private canvasWidth: number;
@@ -116,11 +114,11 @@ export default class Question {
    */
   public drawQuestion(ctx: CanvasRenderingContext2D): void {
     // write the player to the canvas
-    ctx.drawImage(this.image, this.randomX, this.randomY,20,20);
+    ctx.drawImage(this.image, this.randomX - 0, this.randomX - 0,20,20);
     let font = '16px ' + localStorage.getItem("playerNameFontFamily");
     // write the player name above player image to the canvas
     ctx.font = font 
     ctx.fillStyle = "white"
-    ctx.fillText(this.question, this.randomX - 0, this.randomY - 10);
+    ctx.fillText(this.question, this.randomX - 0, this.randomX - 0,);
   }
 }

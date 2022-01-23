@@ -1,6 +1,6 @@
 import Game from "./game.js";
 
-export default class Question {
+export default class Answer {
   public answer: string;
 
   public isCorrect: boolean;
@@ -23,6 +23,60 @@ export default class Question {
     this.image = Game.loadNewImage('/assets/images/chest.png');
   }
   
+  /**
+   * Get the xPosition
+   *
+   * @returns returns the position on the x-axis
+   */
+  public getXPosition(): number {
+    return this.randomX;
+  }
+
+  /**
+   * Set the xPosition
+   *
+   * @param xPosition - set a new xPosition
+   */
+  protected setXPosition(randomX: number): void {
+    this.randomX = randomX;
+  }
+
+  /**
+   * Get the yPosition
+   *
+   * @returns returns the position on the y-axis
+   */
+  public getYPosition(): number {
+    return this.randomY;
+  }
+
+  /**
+   * Set the yPosition
+   *
+   * @param yPosition - set a new yPosition
+   */
+  protected setYPosition(randomY: number): void {
+    this.randomY = randomY;
+  }
+
+    /**
+   * Get the image
+   *
+   * @returns the image of  the GameItem
+   */
+  public getImage(): HTMLImageElement {
+    return this.image;
+  }
+
+  /**
+   * Set the image of the GameItem
+   *
+   * @param image the image of the GameItem
+   */
+  public setImage(image: HTMLImageElement): void {
+    this.image = image;
+  }
+
   /**
    * Method to draw a question on the canvas
    * 
