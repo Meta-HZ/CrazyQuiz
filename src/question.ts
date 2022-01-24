@@ -124,19 +124,6 @@ export default class Question {
     this.isAnswered = isAnswered;
   }
 
-
-  /**
-   * Draw a question on the canvas
-   *
-   * @param ctx rendering context
-   */
-  public draw(ctx: CanvasRenderingContext2D): void {
-    // Draw a question
-    ctx.fillStyle = "#b5651e";
-    ctx.fillText(this.question, this.randomX, this.randomY)
-    ctx.fillRect(this.randomX, this.randomY, 30,30)
-  }
-
   /**
    * Method to draw a question on the canvas
    * 
@@ -146,6 +133,8 @@ export default class Question {
     if (this.showQuestions) {
       // lets save current state as we make a lot of changes        
       ctx.save();
+
+      ctx.drawImage(this.image, this.randomX - 20, this.randomY + 5,20,20);
 
       ctx.font = '16px Roboto'
 

@@ -96,10 +96,9 @@ export default class Answer {
    * @param ctx rendering context
    */
   public drawCurrentQuestion(ctx: CanvasRenderingContext2D): void {
-    let font = '25px ' + localStorage.getItem("playerNameFontFamily");
     // write the answer the image to the canvas
-    ctx.font = font 
-    ctx.fillStyle = "black"
+    ctx.font = '20px Roboto' 
+    ctx.fillStyle = "white"
     ctx.fillText(this.currentQuestion, 100, 100);
   }
 
@@ -114,6 +113,8 @@ export default class Answer {
     // lets save current state as we make a lot of changes        
     ctx.save();
 
+    ctx.drawImage(this.image, this.randomX - 20, this.randomY + 5,20,20);
+    
     // write the question above question image to the canvas
     ctx.font = '16px Roboto' 
 
@@ -137,5 +138,7 @@ export default class Answer {
     
     // restore original state
     ctx.restore();
+
+    this.drawCurrentQuestion(ctx)
   }
 }
