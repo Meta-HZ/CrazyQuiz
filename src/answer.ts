@@ -111,13 +111,31 @@ export default class Answer {
    */
   public drawAnswer(ctx: CanvasRenderingContext2D): void {
     // write the answer to the canvas
-    ctx.drawImage(this.image, this.randomX, this.randomY,20,20);
-    let font = '16px ' + localStorage.getItem("playerNameFontFamily");
-    // write the answer the image to the canvas
-    ctx.font = font 
-    ctx.fillStyle = "white"
-    ctx.fillText(this.answer, this.randomX - 0, this.randomY - 10);
+    // lets save current state as we make a lot of changes        
+    ctx.save();
 
-    this.drawCurrentQuestion(ctx)
+    // write the question above question image to the canvas
+    ctx.font = '16px Roboto' 
+
+    // draw text from top - makes life easier at the moment
+    ctx.textBaseline = 'top';
+
+    // color for background
+    ctx.fillStyle = 'rgb(79 70 229)';
+    
+    // get width of text
+    var width = ctx.measureText(this.answer + 10).width;
+
+    // draw background rect assuming height of font
+    ctx.fillRect(this.randomX + 10, this.randomY, width, parseInt('16px Roboto' , 20));
+    
+    // text color
+    ctx.fillStyle = 'white';
+
+    // draw text on top
+    ctx.fillText("  " + this.answer, this.randomX + 10, this.randomY + 5);
+    
+    // restore original state
+    ctx.restore();
   }
 }
