@@ -1,5 +1,3 @@
-
-
 [
     {
         "question": "Wat is internet veiligheid?",
@@ -12,6 +10,7 @@
         ]
     },
     {
+        
         "question": "Wat gebeurt er wanneer je een foto online zet?",
         "answered": false,
         "answer": "De foto is altijd terug te vinden",
@@ -22,13 +21,13 @@
         ]
     },
     {
-        "question": "Hoe gebruik je internet op een gezonde manier?",
+        "question": "Wat is een goed wachtwoord?",
         "answered": false,
-        "answer": "Maximaal 3 uur per dag",
+        "answer": "Wanneer het kleine letters, hoofdletters, cijfers en speciale tekens gebruikt",
         "answers": [
-        "Maximaal 10 uur per dag",
-        "Maximaal 3 uur per dag", 
-        "Maximaal 5 uur per dag"
+            "Wanneer het kleine letters, hoofdletters, cijfers en speciale tekens gebruikt" ,
+            "Wanneer het een kort wachtwoord is" ,
+            "Wanneer de naam van je hond er in zit" 
         ]
     },
     {
@@ -36,9 +35,9 @@
         "answered": false,
         "answer": "Het goed om kunnen gaan met het internet",
         "answers": [
-          "Het goed om kunnen gaan met het internet",
-          "Weten wat het internet doet",
-          "Heel goed minecraft kunnen spelen"
+            "Het goed om kunnen gaan met het internet",
+            "Weten wat het internet doet",
+            "Heel goed minecraft kunnen spelen"
         ]
     },
     {
@@ -46,119 +45,19 @@
         "answered": false,
         "answer": "Zodat je weet hoe je met het internet om moet gaan",
         "answers": [
-          "Zodat je weet hoe je met het internet om moet gaan" ,
-          "Omdat media een goede invloed is" ,
-          "Zodat je het je oma kan leren" 
+            "Zodat je weet hoe je met het internet om moet gaan" ,
+            "Omdat media een goede invloed is" ,
+            "Zodat je het je oma kan leren" 
         ]
     },
     {
-        "question": "Wat is gegevens veiligheid?",
+        "question": "What is Data Safety?",
         "answered": false,
-        "answer": "Beschermen van digitale onderdelen",
+        "answer": "Protection of digital assets",
         "answers": [
-          "Beschermen van digitale onderdelen" ,
-          "Gebruik van illegale software" ,
-          "Internet Cookies eten" 
-        ]
-    },
-    {
-        "question": "Wat maakt een wachtwoord goed?" ,
-        "answered": false,
-        "answer": "Wanneer het kleine letters, hoofdletters, cijfers en speciale tekens gebruikt",
-        "answers": [
-            "Wanneer het kleine letters, hoofdletters, cijfers en speciale tekens gebruikt",
-            "Wanneer de naam van je hond er in zit", 
-            "Wanneer het een kort wachtwoord is"
-        ]
-    }, 
-    {
-        "question": "Welke stelling over cyberpesten is waar?" ,
-        "answered": false,
-        "answer": "Er wordt meer offline dan online gepest",
-        "answers": [
-            "Het percentage mensen dat online wordt gepest, is vorig jaar verdubbeld",
-            "Er wordt meer offline dan online gepest",
-            "Jongeren onder de 18 worden online 4 keer zo vaak gepest als 65-plussers"
-        ]
-    },
-    {
-        "question": "Wat houdt bij wat jij op internet allemaal doet?",
-        "answered": false,
-        "answer": "Een cookie",
-        "answers": [
-            "Een cookie",
-            "Een virus",
-            "Een cloud"
-        ]
-    },
-    {
-        "question": "Als je een aantal uren per dag bezig bent met je smartphone en/of tablet heb je grote kans dat je later:",
-        "answered": false,
-        "answer": "Een bril moet dragen",
-        "answers": [
-            "Dik wordt",
-            "Last krijgt van trillende handen",
-            "Een bril moet dragen"
-        ]
-    },
-    {
-        "question": "Bij veel sociale media, zoals Instagram en Facebook, kun je je profiel openbaar maken of niet. Hoe staat dit standaard ingesteld?",
-        "answered": false,
-        "answer": "Alles wat je deelt is openbaar en door iedereen op internet te zien",
-        "answers": [
-            "Alles wat je deelt is privé en alleen te zien door jouw vrienden of de mensen die je volgen",
-            "Alles wat je deelt is te zien door alle mensen die ook op Facebook of Instagram zitten",
-            "Alles wat je deelt is openbaar en door iedereen op internet te zien"
-        ]
-    },
-    {
-        "question": "Je fietst naar school en krijgt een appje binnen. Wat doe je?",
-        "answered": false,
-        "answer": "",
-        "answers": [
-            "Ik stop ergens om het bericht te kunnen lezen",
-            "Ik check snel mijn telefoon tijdens het fietsen",
-            "Niets, ik wacht tot ik op school ben"
-        ]
-    },
-    {
-        "question": "Hoeveel jongeren tussen de 12 en de 17 jaar hebben weleens een sexy foto (of filmpje) van zichzelf naar iemand gestuurd?",
-        "answered": false,
-        "answer": "1 op de 15",
-        "answers": [
-            "1 op de 15",
-            "1 op de 7",
-            "1 op de 3"
-        ]
-    },
-    {
-        "question": "Wanneer wordt schermgebruik een probleem?",
-        "answered": false,
-        "answer": "Bijna alle vrije tijd gaat naar de schermactiviteit en vrienden, familie, huiswerk en andere hobby’s worden verwaarloosd",
-        "answers": [
-            "Bijna alle vrije tijd gaat naar de schermactiviteit en vrienden, familie, huiswerk en andere hobby’s worden verwaarloosd",
-            "Wanneer je na school een speletje doet",
-            "Wanneer je schermtijd boven de 3 uur ligt"
-        ]
-    },
-    {
-        "question": "Jullie gaan een week op vakantie. Helaas heeft het vakantiehuisje geen wifi. Wat doe je?",
-        "answered": false,
-        "answer": "Ik laat mijn smartphone de hele week in mijn koffer zitten. Lekker rustig!",
-        "answers": [
-            "Ik zoek 1 of 2 keer een plek met wifi om mijn WhatsApp en sociale media te checken",
-            "Ik laat mijn smartphone de hele week in mijn koffer zitten. Lekker rustig!",
-            "Ik wil niet mee op vakantie. Een week zonder wifi gaat echt niet!"
-        ]
-    },
-    {
-        "question": "Hebben jullie thuis afspraken over het gebruik van media? Bijvoorbeeld: eerst huiswerk maken en/of geen smartphone tijdens het eten?",
-        "answered": false,
-        "answer": "Ja, wij hebben afspraken en daar hou ik me aan",
-        "answers": [
-            "Ja, maar ik hou me er niet altijd aan",
-            "Nee, waarom zouden we?",
-            "Ja, wij hebben afspraken en daar hou ik me aan"
+            "Protection of digital assets" ,
+            "Pirated Software Usage" ,
+            "Eating Internet Cookies" 
         ]
     }
-  ]
+]
