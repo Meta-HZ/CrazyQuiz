@@ -10,3 +10,6 @@ For our game we had to go to a school and ask the kids what features they wanted
 - [x] Option to set your own name and add colors to it.
 - [x] Minecraft graphics in the game
 - [ ] Music/sound effects on events like question etc.
+
+
+![diagram](./src_diagram.png)
